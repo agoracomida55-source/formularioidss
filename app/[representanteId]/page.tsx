@@ -1,4 +1,4 @@
-import RegistrationForm from "@/components/registration-form"
+import RegistrationForm from "@/components/formulario-de-inscricao"
 import { createClient } from "@/lib/supabase"
 import { redirect } from "next/navigation"
 
@@ -68,7 +68,7 @@ export default async function RepresentantePage({ params }: PageProps) {
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center py-6 md:py-12 px-2 md:px-4">
       <div className="container mx-auto max-w-4xl w-full px-3 sm:px-6 md:px-8">
         <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8">
-          <RegistrationForm
+          <FormularioDeInscricao
             representanteId={representanteId}
             representativeName={representative.name}
             representativeWhatsapp={representative.whatsapp}
