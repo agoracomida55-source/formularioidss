@@ -16,7 +16,7 @@ const REFERRAL_ID = "110956"
 const DEFAULT_WHATSAPP = "5584981321396"
 
 interface RegistrationFormProps {
-  repId?: string
+  representanteId?: string
   repWhatsApp?: string
   repName?: string
 }
@@ -68,7 +68,7 @@ const PLANS = {
   ],
 }
 
-export default function RegistrationForm({ repId, repWhatsApp, repName }: RegistrationFormProps = {}) {
+export default function RegistrationForm({ representanteId, repWhatsApp, repName }: RegistrationFormProps = {}) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [showPaymentModal, setShowPaymentModal] = useState(false)
@@ -368,7 +368,7 @@ export default function RegistrationForm({ repId, repWhatsApp, repName }: Regist
         },
         body: JSON.stringify({
           ...formData,
-          father: repId || REFERRAL_ID,
+          father: representanteId || REFERRAL_ID,
           status: "0",
           type: "Recorrente",
         }),
