@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import FormularioDeInscricao from "@/componentes/formulário-de-registro";
+import FormularioDeInscricao from "@/componentes/formulario-de-inscricao.tsx
+";
 import supabase from "@/lib/supabase";
 
 export default function Lar() {
