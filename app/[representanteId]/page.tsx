@@ -1,11 +1,11 @@
 import RegistrationForm from "@/components/registration-form"
 
-export default async function RepresentantePage({
-  params,
-}: {
-  params: Promise<{ representanteId: string }>
-}) {
-  const { representanteId } = await params
+interface PageProps {
+  params: { representanteId: string }
+}
+
+export default function RepresentantePage({ params }: PageProps) {
+  const { representanteId } = params
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center py-6 md:py-12 px-2 md:px-4">
