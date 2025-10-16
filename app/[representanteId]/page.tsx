@@ -1,4 +1,4 @@
-import RegistrationForm from "@/components/formulario-de-inscricao"
+import RegistrationForm from "@/components/formulario-de-inscricao.tsx";
 import { createClient } from "@/lib/supabase"
 import { redirect } from "next/navigation"
 
