@@ -52,6 +52,7 @@ export default async function RepresentantePage({ params }: PageProps) {
         <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8">
           <RegistrationForm
             representanteId={representanteId}
+            representativeName={representative.name}
             representativeWhatsapp={representative.whatsapp}
           />
         </div>

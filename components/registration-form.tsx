@@ -17,6 +17,7 @@ const DEFAULT_WHATSAPP = "5584981321396"
 
 interface RegistrationFormProps {
   representanteId?: string
+  representativeName?: string
   representativeWhatsapp?: string
 }
 
@@ -67,7 +68,7 @@ const PLANS = {
   ],
 }
 
-export default function RegistrationForm({ representanteId, representativeWhatsapp }: RegistrationFormProps = {}) {
+export default function RegistrationForm({ representanteId, representativeName, representativeWhatsapp }: RegistrationFormProps = {}) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [showPaymentModal, setShowPaymentModal] = useState(false)
@@ -480,7 +481,7 @@ export default function RegistrationForm({ representanteId, representativeWhatsa
           <div className="text-center mb-6 md:mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Seja bem-vindo ao Registro de Associados</h1>
             <p className="text-sm sm:text-base text-gray-700 mt-2 font-medium">
-              Código do Representante: {representanteId || REFERRAL_ID}
+              Patrocinador: {representativeName || "Representante Principal"}
             </p>
           </div>
         )}
