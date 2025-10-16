@@ -17,8 +17,7 @@ const DEFAULT_WHATSAPP = "5584981321396"
 
 interface RegistrationFormProps {
   representanteId?: string
-  repWhatsApp?: string
-  repName?: string
+  representativeWhatsapp?: string
 }
 
 const BRAZILIAN_STATES = [
@@ -68,7 +67,7 @@ const PLANS = {
   ],
 }
 
-export default function RegistrationForm({ representanteId, repWhatsApp, repName }: RegistrationFormProps = {}) {
+export default function RegistrationForm({ representanteId, representativeWhatsapp }: RegistrationFormProps = {}) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [showPaymentModal, setShowPaymentModal] = useState(false)
@@ -416,7 +415,7 @@ export default function RegistrationForm({ representanteId, repWhatsApp, repName
           `Acabei de realizar meu cadastro.\n\nPlano escolhido: ${fullPlanName}.\nTipo de chip: ${chipType}.\nForma de envio: ${shippingType}.\n\nQuais os próximos passos?`
         )
 
-        const whatsappNumber = repWhatsApp || DEFAULT_WHATSAPP
+        const whatsappNumber = representativeWhatsapp || DEFAULT_WHATSAPP
 
         setTimeout(() => {
           window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`
@@ -481,7 +480,7 @@ export default function RegistrationForm({ representanteId, repWhatsApp, repName
           <div className="text-center mb-6 md:mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Seja bem-vindo ao Registro de Associados</h1>
             <p className="text-sm sm:text-base text-gray-700 mt-2 font-medium">
-              Patrocinador: {repName || "Francisco Eliedisom Dos Santos"}
+              Código do Representante: {representanteId || REFERRAL_ID}
             </p>
           </div>
         )}
