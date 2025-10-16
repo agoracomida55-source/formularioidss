@@ -13,12 +13,16 @@ export default async function RepresentantePage({ params }: PageProps) {
 
   const supabase = createClient()
 
-  const { data: representative } = await supabase
+  const { data: representative, error } = await supabase
     .from('representatives')
     .select('id, name, whatsapp, active')
     .eq('id', representanteId)
     .eq('active', true)
     .maybeSingle()
+
+  console.log('Representative ID:', representanteId)
+  console.log('Representative Data:', representative)
+  console.log('Error:', error)
 
   if (!representative) {
     const whatsappMessage = encodeURIComponent(
