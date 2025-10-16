@@ -1,35 +1,35 @@
-import RegistrationForm from "@/components/formulario-de-inscricao.tsx";
-import { createClient } from "@/lib/supabase"
-import { redirect } from "next/navigation"
+import RegistrationForm from "@/components/formulario-de-inscricao";
+import { createClient } from "@/lib/supabase";
+import { redirect } from "next/navigation";
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface PageProps {
-  params: { representanteId: string }
+  params: { representanteId: string };
 }
 
 export default async function RepresentantePage({ params }: PageProps) {
-  const { representanteId } = params
+  const { representanteId } = params;
 
-  const supabase = createClient()
+  const supabase = createClient();
 
   const { data: representative, error } = await supabase
     .from('representatives')
     .select('id, name, whatsapp, active')
     .eq('id', representanteId)
     .eq('active', true)
-    .maybeSingle()
+    .maybeSingle();
 
-  console.log('Representative ID:', representanteId)
-  console.log('Representative Data:', representative)
-  console.log('Error:', error)
+  console.log('Representative ID:', representanteId);
+  console.log('Representative Data:', representative);
+  console.log('Error:', error);
 
   if (!representative) {
     const whatsappMessage = encodeURIComponent(
       "Olá, como eu faço para ter acesso a esse formulário de cadastro da Federal Associados?"
-    )
-    const whatsappLink = `https://api.whatsapp.com/send?phone=556281000824&text=${whatsappMessage}`
+    );
+    const whatsappLink = `https://api.whatsapp.com/send?phone=556281000824&text=${whatsappMessage}`;
 
     return (
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center py-6 md:py-12 px-2 md:px-4">
@@ -61,14 +61,14 @@ export default async function RepresentantePage({ params }: PageProps) {
           </footer>
         </div>
       </main>
-    )
+    );
   }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center py-6 md:py-12 px-2 md:px-4">
       <div className="container mx-auto max-w-4xl w-full px-3 sm:px-6 md:px-8">
         <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8">
-          <FormularioDeInscricao
+          <RegistrationForm
             representanteId={representanteId}
             representativeName={representative.name}
             representativeWhatsapp={representative.whatsapp}
@@ -79,5 +79,5 @@ export default async function RepresentantePage({ params }: PageProps) {
         </footer>
       </div>
     </main>
-  )
+  );
 }
