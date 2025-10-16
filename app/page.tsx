@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import FormularioDeInscricao from "@/componentes/formulario-de-inscricao.tsx
+import FormularioDeInscricao from "@/componentes/formulario-de-inscricao";
 ";
 import supabase from "@/lib/supabase";
 
