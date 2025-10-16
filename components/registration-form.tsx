@@ -480,9 +480,11 @@ export default function RegistrationForm({ representanteId, representativeName, 
         {currentStep === 1 && (
           <div className="text-center mb-6 md:mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Seja bem-vindo ao Registro de Associados</h1>
-            <p className="text-sm sm:text-base text-gray-700 mt-2 font-medium">
-              Patrocinador: {representativeName || "Representante Principal"}
-            </p>
+            {representativeName && (
+              <p className="text-sm sm:text-base text-gray-700 mt-2 font-medium">
+                Patrocinador: {representativeName}
+              </p>
+            )}
           </div>
         )}
 
